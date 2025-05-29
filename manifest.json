@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Segment Looper",
+  "version": "1.0",
+  "description": "Loop selected segments on YouTube by right-clicking the progress bar.",
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["*://www.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
